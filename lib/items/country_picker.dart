@@ -116,15 +116,14 @@ class _CountryPickerState extends State<CountryPicker> {
         child: SafeArea(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               isLoading
-                  ? Center(child: SizedBox(
-                  height: 40,
-                  width: 40,
-                  child: Column(
-                    children: [
-                      CircularProgressIndicator(),
-                      Text("Loading...")
-                    ],
-                  )))
+                  ? Expanded(
+                    child: Center(child: Column(
+                      children: [
+                        CircularProgressIndicator(color: Colors.black),
+                        Text("Loading...")
+                      ],
+                    )),
+                  )
                   : Expanded(
                   child: Column(children: [
                     widget.titleWidget ==null?(Column(children:[  Row(children: [Spacer(),InkWell(
