@@ -41,34 +41,50 @@ class _CountryPickerState extends State<CountryPicker> {
     loadData(widget.isEnglish);
   }
 
-  void loadData(bool isEnglish) async {
+  Future<void> loadData(bool isEnglish) async {
     try {
-      await rootBundle.loadString(
-        'packages/country_picker_cax/asset/top__countries.json',
-      ).then((value) {
-        Map countyMap = json.decode(value);
-        List list = countyMap['countrylist'];
-        list.forEach((v) {
-          _topCountries.add(CountryCodeList.fromJson(v));
-        });
-      });
+      // Load both JSON files in parallel
+      final topCountriesFuture = _loadJsonList(
+        'packages/country_picker_cax/lib/asset/top__countries.json',
+      );
 
-      await rootBundle.loadString(
-        'packages/country_picker_cax/asset/country.json',
-      ).then((value) {
-        Map countyMap = json.decode(value);
-        List list = countyMap['countrylist'];
-        list.forEach((v) {
-          _countries.add(CountryCodeList.fromJson(v));
-        });
-        _handleList(_countries, isEnglish);
-      });
+      final allCountriesFuture = _loadJsonList(
+        'packages/country_picker_cax/lib/asset/country.json',
+      );
+
+      // Wait for both to finish
+      final topCountries = await topCountriesFuture;
+      final allCountries = await allCountriesFuture;
+
+      _topCountries.addAll(
+        topCountries.map((v) => CountryCodeList.fromJson(v)),
+      );
+
+      _countries.addAll(
+        allCountries.map((v) => CountryCodeList.fromJson(v)),
+      );
+
+      _handleList(_countries, isEnglish);
 
       isLoading = false;
-    }catch(e,s){
-      print("error on Load $e,$s");
+    } catch (e, s) {
+      debugPrint("❌ Error loading country data: $e");
+      debugPrint("$s");
     }
   }
+
+  /// Helper function to load JSON and return list
+  Future<List<dynamic>> _loadJsonList(String path) async {
+    final jsonStr = await rootBundle.loadString(path);
+    final Map<String, dynamic> map = json.decode(jsonStr);
+
+    if (map['countrylist'] is! List) {
+      throw Exception("Invalid format: 'countrylist' must be a list");
+    }
+
+    return map['countrylist'];
+  }
+
 
   void _handleList(List<CountryCodeList> list,bool isEnglish) {
     if (list.isEmpty) return;
