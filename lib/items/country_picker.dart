@@ -42,28 +42,32 @@ class _CountryPickerState extends State<CountryPicker> {
   }
 
   void loadData(bool isEnglish) async {
-    await rootBundle.loadString(
-      'packages/country_picker_cax/asset/top__countries.json',
-    ).then((value) {
-      Map countyMap = json.decode(value);
-      List list = countyMap['countrylist'];
-      list.forEach((v) {
-        _topCountries.add(CountryCodeList.fromJson(v));
+    try {
+      await rootBundle.loadString(
+        'packages/country_picker_cax/asset/top__countries.json',
+      ).then((value) {
+        Map countyMap = json.decode(value);
+        List list = countyMap['countrylist'];
+        list.forEach((v) {
+          _topCountries.add(CountryCodeList.fromJson(v));
+        });
       });
-    });
 
-    await rootBundle.loadString(
-      'packages/country_picker_cax/asset/country.json',
-    ).then((value) {
-      Map countyMap = json.decode(value);
-      List list = countyMap['countrylist'];
-      list.forEach((v) {
-        _countries.add(CountryCodeList.fromJson(v));
+      await rootBundle.loadString(
+        'packages/country_picker_cax/asset/country.json',
+      ).then((value) {
+        Map countyMap = json.decode(value);
+        List list = countyMap['countrylist'];
+        list.forEach((v) {
+          _countries.add(CountryCodeList.fromJson(v));
+        });
+        _handleList(_countries, isEnglish);
       });
-      _handleList(_countries,isEnglish);
-    });
 
-    isLoading = false;
+      isLoading = false;
+    }catch(e,s){
+      print("error on Load $e,$s");
+    }
   }
 
   void _handleList(List<CountryCodeList> list,bool isEnglish) {
