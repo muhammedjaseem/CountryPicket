@@ -117,13 +117,16 @@ class _CountryPickerState extends State<CountryPicker> {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               isLoading
                   ? Expanded(
-                    child: Center(child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircularProgressIndicator(color: Colors.black),
-                        Text("Loading...")
-                      ],
+                    child: Center(child: Align(
+                      alignment: Alignment.center,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(color: Colors.black),
+                          Text("Loading...")
+                        ],
+                      ),
                     )),
                   )
                   : Expanded(
