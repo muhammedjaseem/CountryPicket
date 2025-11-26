@@ -119,7 +119,12 @@ class _CountryPickerState extends State<CountryPicker> {
                   ? Center(child: SizedBox(
                   height: 40,
                   width: 40,
-                  child: CircularProgressIndicator()))
+                  child: Column(
+                    children: [
+                      CircularProgressIndicator(),
+                      Text("Loading...")
+                    ],
+                  )))
                   : Expanded(
                   child: Column(children: [
                     widget.titleWidget ==null?(Column(children:[  Row(children: [Spacer(),InkWell(
