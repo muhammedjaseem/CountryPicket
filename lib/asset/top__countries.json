@@ -1,0 +1,80 @@
+{
+  "countrylist": [
+    {
+      "CountryId": "235",
+      "CountryCode": "AE",
+      "CountryName": "UNITED ARAB EMIRATES",
+      "CountryNameArabic": "الامارات العربية المتحدة",
+      "MobileCode": "UNITED ARAB EMIRATES  +971",
+      "MobileCodeArabc": "+971  الامارات العربية المتحدة ",
+      "ISDCode": "+971",
+      "CurrencyCode": "",
+      "culture": "1",
+      "CountryFormat": "0",
+      "CountryCodeFormat": "0",
+      "CountrynameFormatted": "UNITED ARAB EMIRATES",
+      "CountryCodeFormatted": "+971"
+    },
+    {
+      "CountryId": "170",
+      "CountryCode": "OM",
+      "CountryName": "OMAN",
+      "CountryNameArabic": "عمان",
+      "MobileCode": "OMAN  +968",
+      "MobileCodeArabc": "+968  عمان ",
+      "ISDCode": "+968",
+      "CurrencyCode": "",
+      "culture": "1",
+      "CountryFormat": "0",
+      "CountryCodeFormat": "0",
+      "CountrynameFormatted": "OMAN",
+      "CountryCodeFormatted": "+968"
+    },
+    {
+      "CountryId": "122",
+      "CountryCode": "KW",
+      "CountryName": "KUWAIT",
+      "CountryNameArabic": "الكويت",
+      "MobileCode": "KUWAIT  +965",
+      "MobileCodeArabc": "+965  الكويت ",
+      "ISDCode": "+965",
+      "CurrencyCode": "",
+      "culture": "1",
+      "CountryFormat": "0",
+      "CountryCodeFormat": "0",
+      "CountrynameFormatted": "KUWAIT",
+      "CountryCodeFormatted": "+965"
+    },
+    {
+      "CountryId": "183",
+      "CountryCode": "QA",
+      "CountryName": "QATAR",
+      "CountryNameArabic": "قطر",
+      "MobileCode": "QATAR  +974",
+      "MobileCodeArabc": "+974  قطر ",
+      "ISDCode": "+974",
+      "CurrencyCode": "",
+      "culture": "1",
+      "CountryFormat": "0",
+      "CountryCodeFormat": "0",
+      "CountrynameFormatted": "QATAR",
+      "CountryCodeFormatted": "+974"
+    },
+    {
+      "CountryId": "22",
+      "CountryCode": "BH",
+      "CountryName": "BAHRAIN",
+      "CountryNameArabic": "البحرين",
+      "MobileCode": "BAHRAIN  +973",
+      "MobileCodeArabc": "+973  البحرين ",
+      "ISDCode": "+973",
+      "CurrencyCode": "",
+      "culture": "1",
+      "CountryFormat": "0",
+      "CountryCodeFormat": "0",
+      "CountrynameFormatted": "BAHRAIN",
+      "CountryCodeFormatted": "+973"
+    }
+  ]
+
+}
